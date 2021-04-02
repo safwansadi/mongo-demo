@@ -4,11 +4,17 @@ async function createCourse() {
   const course = new Course({
     name: "Angular.js Course",
     author: "mosh",
-    tags: ["node", "frontend"],
+    tags: null,
     isPublished: true,
+    catagory: "web",
+    price: 10,
   });
-
-  const result = await course.save();
-  console.log(result);
+  try {
+    const result = await course.save();
+    console.log(result);
+  } catch (ex) {
+    console.log(ex.message);
+  }
 }
+
 createCourse();
